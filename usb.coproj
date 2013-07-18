@@ -18,9 +18,10 @@
         <Option name="DiscardUnusedSection" value="0"/>
         <Option name="UserEditLinkder" value=""/>
         <Option name="UseMemoryLayout" value="1"/>
-        <Option name="LTO" value="1"/>
+        <Option name="LTO" value="0"/>
         <Option name="IsNewStartupCode" value="1"/>
         <Option name="Library" value="Not use C Library"/>
+        <Option name="UserEditLinker" value="--entry=main; "/>
         <LinkedLibraries/>
         <MemoryAreas debugInFlashNotRAM="1">
           <Memory name="IROM1" type="ReadOnly" size="0x00080000" startValue="0x00000000"/>
@@ -70,30 +71,73 @@
     <Component id="255" name="CLKPWR" path="" type="2"/>
     <Component id="256" name="NVIC" path="" type="2"/>
     <Component id="257" name="GPIO" path="" type="2"/>
+    <Component id="258" name="PINSEL" path="" type="2"/>
+    <Component id="275" name="UART" path="" type="2"/>
+    <Component id="278" name="USB CDC LPC17xx" path="" type="2"/>
   </Components>
   <Files>
-    <File name="cmsis" path="" type="2"/>
-    <File name="cmsis/core_cm3.c" path="cmsis/core_cm3.c" type="1"/>
-    <File name="lpc17xx_lib/source/lpc17xx_nvic.c" path="lpc17xx_lib/source/lpc17xx_nvic.c" type="1"/>
-    <File name="lpc17xx_lib/include/lpc17xx_nvic.h" path="lpc17xx_lib/include/lpc17xx_nvic.h" type="1"/>
-    <File name="lpc17xx_lib/include/lpc17xx_libcfg_default.h" path="lpc17xx_lib/include/lpc17xx_libcfg_default.h" type="1"/>
-    <File name="cmsis_boot/system_LPC17xx.h" path="cmsis_boot/system_LPC17xx.h" type="1"/>
+    <File name="USB_Stack/USB_DeviceSpecific/usbcfg.h" path="USB_Stack/usbcfg.h" type="1"/>
+    <File name="GPIO/led.h" path="LED/led.h" type="1"/>
+    <File name="USB_Device/usbdevice.h" path="USB_Device/usbdevice.h" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_libcfg_default.c" path="lpc17xx_lib/source/lpc17xx_libcfg_default.c" type="1"/>
-    <File name="cmsis/core_cm3.h" path="cmsis/core_cm3.h" type="1"/>
+    <File name="USB_Stack/usbcore.c" path="USB_Stack/usbcore.c" type="1"/>
+    <File name="USB_Stack/usbreg.h" path="USB_Stack/usbreg.h" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
-    <File name="LED_fun.h" path="LED_fun.h" type="1"/>
+    <File name="Timer/timer.c" path="Timer/timer.c" type="1"/>
+    <File name="cmsis_boot/startup" path="" type="2"/>
+    <File name="USB_Stack/usbdesc.h" path="USB_Stack/usbdesc.h" type="1"/>
+    <File name="example/UART_Interrupt.c" path="example/UART_Interrupt.c" type="1"/>
+    <File name="USB_Stack/USB_DeviceSpecific/cdcuser.c" path="USB_Stack/cdcuser.c" type="1"/>
+    <File name="USB_Stack/USB_DeviceSpecific/usbuser.h" path="USB_Stack/usbuser.h" type="1"/>
+    <File name="example/UART Print.c" path="example/UART Print.c" type="1"/>
+    <File name="Timer" path="" type="2"/>
+    <File name="lpc17xx_lib" path="" type="2"/>
+    <File name="USB_Stack/usbcore.h" path="USB_Stack/usbcore.h" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_nvic.c" path="lpc17xx_lib/source/lpc17xx_nvic.c" type="1"/>
+    <File name="example" path="" type="2"/>
+    <File name="cmsis/core_cm3.c" path="cmsis/core_cm3.c" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_pinsel.c" path="lpc17xx_lib/source/lpc17xx_pinsel.c" type="1"/>
+    <File name="UART" path="" type="2"/>
+    <File name="USB_Stack/usb.h" path="USB_Stack/usb.h" type="1"/>
     <File name="cmsis_boot/startup/startup_LPC17xx.c" path="cmsis_boot/startup/startup_LPC17xx.c" type="1"/>
     <File name="lpc17xx_lib/source" path="" type="2"/>
-    <File name="lpc17xx_lib/source/lpc17xx_clkpwr.c" path="lpc17xx_lib/source/lpc17xx_clkpwr.c" type="1"/>
-    <File name="lpc17xx_lib/include" path="" type="2"/>
+    <File name="GPIO/LED_fun.h" path="LED/LED_fun.h" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_gpio.c" path="lpc17xx_lib/source/lpc17xx_gpio.c" type="1"/>
+    <File name="GPIO/gpiodefs.h" path="LED/gpiodefs.h" type="1"/>
+    <File name="USB_Device/usbdevice_cdc.c" path="USB_Device/usbdevice_cdc.c" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_clkpwr.h" path="lpc17xx_lib/include/lpc17xx_clkpwr.h" type="1"/>
+    <File name="USB_Device" path="" type="2"/>
+    <File name="USB_Stack/lpc17xx_libcfg.h" path="USB_Stack/lpc17xx_libcfg.h" type="1"/>
+    <File name="example/UART_Interrupt.h" path="example/UART_Interrupt.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_pinsel.h" path="lpc17xx_lib/include/lpc17xx_pinsel.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_nvic.h" path="lpc17xx_lib/include/lpc17xx_nvic.h" type="1"/>
+    <File name="USB_Stack/USB_DeviceSpecific/cdcuser.h" path="USB_Stack/cdcuser.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_libcfg_default.h" path="lpc17xx_lib/include/lpc17xx_libcfg_default.h" type="1"/>
+    <File name="INF/lpc17xx-vcom.inf" path="INF/lpc17xx-vcom.inf" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_uart.h" path="lpc17xx_lib/include/lpc17xx_uart.h" type="1"/>
+    <File name="cmsis/core_cm3.h" path="cmsis/core_cm3.h" type="1"/>
+    <File name="INF" path="" type="2"/>
+    <File name="lpc17xx_lib/source/lpc17xx_clkpwr.c" path="lpc17xx_lib/source/lpc17xx_clkpwr.c" type="1"/>
+    <File name="USB_Stack/usbhw.c" path="USB_Stack/usbhw.c" type="1"/>
+    <File name="USB_Device/usbdevice_vnd.c" path="USB_Device/usbdevice_vnd.c" type="1"/>
     <File name="cmsis_boot/system_LPC17xx.c" path="cmsis_boot/system_LPC17xx.c" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_gpio.h" path="lpc17xx_lib/include/lpc17xx_gpio.h" type="1"/>
-    <File name="cmsis_boot/startup" path="" type="2"/>
-    <File name="lpc17xx_lib/include/lpc_types.h" path="lpc17xx_lib/include/lpc_types.h" type="1"/>
-    <File name="lpc17xx_lib/include/lpc17xx_clkpwr.h" path="lpc17xx_lib/include/lpc17xx_clkpwr.h" type="1"/>
-    <File name="main.c" path="main.c" type="1"/>
+    <File name="USB_Stack/USB_DeviceSpecific/cdc.h" path="USB_Stack/cdc.h" type="1"/>
     <File name="cmsis_boot/LPC17xx.h" path="cmsis_boot/LPC17xx.h" type="1"/>
-    <File name="lpc17xx_lib" path="" type="2"/>
+    <File name="Timer/timer.h" path="Timer/timer.h" type="1"/>
+    <File name="INF/lpc17xx-vcom 64bits.inf" path="INF/lpc17xx-vcom 64bits.inf" type="1"/>
+    <File name="cmsis" path="" type="2"/>
+    <File name="GPIO" path="" type="2"/>
+    <File name="USB_Stack/USB_DeviceSpecific/usbuser.c" path="USB_Stack/usbuser.c" type="1"/>
+    <File name="USB_Stack" path="" type="2"/>
+    <File name="cmsis_boot/system_LPC17xx.h" path="cmsis_boot/system_LPC17xx.h" type="1"/>
+    <File name="GPIO/led.c" path="LED/led.c" type="1"/>
+    <File name="lpc17xx_lib/include" path="" type="2"/>
+    <File name="USB_Stack/USB_DeviceSpecific" path="" type="2"/>
+    <File name="lpc17xx_lib/include/lpc_types.h" path="lpc17xx_lib/include/lpc_types.h" type="1"/>
+    <File name="lpc17xx_lib/source/lpc17xx_uart.c" path="lpc17xx_lib/source/lpc17xx_uart.c" type="1"/>
+    <File name="USB_Stack/usbhw.h" path="USB_Stack/usbhw.h" type="1"/>
+    <File name="USB_Stack/usbdesc.c" path="USB_Stack/usbdesc.c" type="1"/>
+    <File name="main.c" path="main.c" type="1"/>
   </Files>
 </Project>
